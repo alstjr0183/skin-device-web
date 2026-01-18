@@ -1,6 +1,12 @@
 import api from '@/lib/axios';
 
-export const postSkinDiagnosis = async (file: File) => {
+export interface SkinDiagnosisResponse {
+    diagnosis: string;
+    recommendation: string;
+    graph_image: string;
+}
+
+export const postSkinDiagnosis = async (file: File): Promise<SkinDiagnosisResponse> => {
     const formData = new FormData();
     formData.append('image', file);
 
