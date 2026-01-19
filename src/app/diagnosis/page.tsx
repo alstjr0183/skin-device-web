@@ -1,4 +1,4 @@
-import SkinDiagnosis from '@/components/SkinDiagnosis';
+import SkinDiagnosis from '@/domains/diagnosis/container/SkinDiagnosisContainer';
 
 export default function DiagnosisPage() {
     return (
