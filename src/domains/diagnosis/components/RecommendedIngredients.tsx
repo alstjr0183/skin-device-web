@@ -31,6 +31,39 @@ export default function RecommendedIngredients({ ingredients }: RecommendedIngre
                         {ingredient.caution && (
                             <p className="text-sm text-red-600 mt-1"><span className="font-semibold">주의:</span> {ingredient.caution}</p>
                         )}
+
+                        {ingredient.products && ingredient.products.length > 0 && (
+                            <div className="mt-4 pt-4 border-t border-gray-200">
+                                <h4 className="text-sm font-semibold text-gray-700 mb-1">올리브영 추천 제품</h4>
+                                <p className="text-xs text-gray-500 mb-3">
+                                    올리브영에서 해당 성분 검색 시 추천순 상위 3개 제품입니다.
+                                </p>
+                                <div className="space-y-3">
+                                    {ingredient.products.map((product, pIndex) => (
+                                        <a
+                                            key={pIndex}
+                                            href={product.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-3 p-2 bg-white rounded border hover:border-blue-300 transition-colors"
+                                        >
+                                            <div className="relative w-12 h-12 flex-shrink-0">
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                <img
+                                                    src={product.image}
+                                                    alt={product.name}
+                                                    className="w-full h-full object-cover rounded"
+                                                />
+                                            </div>
+                                            <div className="min-w-0 flex-1">
+                                                <p className="text-xs text-gray-500 mb-0.5">{product.brand}</p>
+                                                <p className="text-sm font-medium text-gray-900 truncate">{product.name}</p>
+                                            </div>
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>
