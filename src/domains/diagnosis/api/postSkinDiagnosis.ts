@@ -1,5 +1,12 @@
 import api from '@/lib/axios';
 
+export type PostSkinDiagnosisProduct = {
+    brand: string;
+    name: string;
+    image: string;
+    link: string;
+}
+
 export type PostSkinDiagnosisIngredient = {
     name_ko: string;
     name_en: string;
@@ -7,6 +14,7 @@ export type PostSkinDiagnosisIngredient = {
     caution: string;
     match_reason: string;
     usage_time: 'ANY' | 'DAY' | 'NIGHT';
+    products: PostSkinDiagnosisProduct[];
 }
 
 export type PostSkinDiagnosisResponse = {
