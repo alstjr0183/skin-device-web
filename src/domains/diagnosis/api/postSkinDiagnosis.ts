@@ -44,7 +44,7 @@ export const postSkinDiagnosis = async ({ file, concern }: PostSkinDiagnosisRequ
     formData.append('image', file);
 
     if (concern) {
-        formData.append('textarea', concern);
+        formData.append('concern', concern);
     }
 
     const response = await api.post('/skin/diagnosis', formData, {
