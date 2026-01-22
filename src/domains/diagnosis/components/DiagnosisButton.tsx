@@ -9,13 +9,20 @@ export default function DiagnosisButton({ onClick, disabled, isPending }: Diagno
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`w-full py-3 px-6 rounded-full font-semibold text-white transition-all
+            className={`w-full py-4 rounded-xl font-bold text-lg transition-all transform duration-200
       ${disabled
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-blue-600 hover:bg-blue-700 shadow-lg active:scale-95'
+                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                    : 'bg-blue-500 text-white hover:bg-blue-600 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]'
                 }`}
         >
-            {isPending ? '분석 중...' : '진단하기'}
+            {isPending ? (
+                <div className="flex items-center justify-center gap-2">
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>분석 중...</span>
+                </div>
+            ) : (
+                '피부 진단하기'
+            )}
         </button>
     );
 }

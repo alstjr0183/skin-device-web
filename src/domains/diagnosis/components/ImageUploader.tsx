@@ -17,7 +17,7 @@ export default function ImageUploader({
     return (
         <div className="w-full flex flex-col items-center gap-6">
             <div
-                className="relative w-64 h-64 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center border-2 border-dashed border-gray-300 cursor-pointer hover:border-blue-500 transition-colors"
+                className="relative w-full aspect-square max-w-[280px] bg-gray-50 rounded-3xl overflow-hidden flex flex-col items-center justify-center border-2 border-dashed border-gray-200 cursor-pointer hover:border-blue-400 hover:bg-blue-50/30 transition-all duration-300 group"
                 onClick={() => fileInputRef.current?.click()}
             >
                 {preview ? (
@@ -28,9 +28,16 @@ export default function ImageUploader({
                         className="object-cover"
                     />
                 ) : (
-                    <div className="text-gray-500 text-center p-4">
-                        <span className="block text-4xl mb-2">📸</span>
-                        <span className="text-sm">터치하여 사진을 찍거나<br />업로드하세요</span>
+                    <div className="text-gray-400 text-center p-6 transition-transform duration-300 group-hover:scale-105">
+                        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white group-hover:shadow-sm transition-colors">
+                            <span className="text-3xl">📸</span>
+                        </div>
+                        <p className="text-sm font-medium text-gray-500 mb-1 group-hover:text-blue-600 transition-colors">
+                            사진을 등록해주세요
+                        </p>
+                        <p className="text-xs text-gray-400">
+                            터치하여 촬영 또는 업로드
+                        </p>
                     </div>
                 )}
             </div>
@@ -43,7 +50,6 @@ export default function ImageUploader({
                 capture="user"
                 className="hidden"
             />
-
         </div>
     );
 }
