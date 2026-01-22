@@ -1,5 +1,10 @@
 import api from '@/lib/axios';
 
+export type PostSkinDiagnosisRequest = {
+    file: File;
+    concern?: string;
+}
+
 export type PostSkinDiagnosisProduct = {
     brand: string;
     name: string;
@@ -34,9 +39,13 @@ export type PostSkinDiagnosisResponse = {
     graph_image: string;
 }
 
-export const postSkinDiagnosis = async (file: File): Promise<PostSkinDiagnosisResponse> => {
+export const postSkinDiagnosis = async ({ file, concern }: PostSkinDiagnosisRequest): Promise<PostSkinDiagnosisResponse> => {
     const formData = new FormData();
     formData.append('image', file);
+
+    if (concern) {
+        formData.append('textarea', concern);
+    }
 
     const response = await api.post('/skin/diagnosis', formData, {
         headers: {

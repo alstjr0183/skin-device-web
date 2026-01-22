@@ -5,18 +5,12 @@ import Image from 'next/image';
 
 interface ImageUploaderProps {
     preview: string | null;
-    file: File | null;
-    isPending: boolean;
     onFileSelect: (e: ChangeEvent<HTMLInputElement>) => void;
-    onUpload: () => void;
 }
 
 export default function ImageUploader({
     preview,
-    file,
-    isPending,
     onFileSelect,
-    onUpload,
 }: ImageUploaderProps) {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -50,17 +44,6 @@ export default function ImageUploader({
                 className="hidden"
             />
 
-            <button
-                onClick={onUpload}
-                disabled={!file || isPending}
-                className={`w-full py-3 px-6 rounded-full font-semibold text-white transition-all
-          ${!file || isPending
-                        ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-blue-600 hover:bg-blue-700 shadow-lg active:scale-95'
-                    }`}
-            >
-                {isPending ? '분석 중...' : '진단하기'}
-            </button>
         </div>
     );
 }

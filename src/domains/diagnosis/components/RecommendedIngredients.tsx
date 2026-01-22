@@ -36,7 +36,7 @@ export default function RecommendedIngredients({ ingredients }: RecommendedIngre
                             <div className="mt-4 pt-4 border-t border-gray-200">
                                 <h4 className="text-sm font-semibold text-gray-700 mb-1">올리브영 추천 제품</h4>
                                 <p className="text-xs text-gray-500 mb-3">
-                                    올리브영에서 해당 성분 검색 시 추천순 상위 3개 제품입니다.
+                                    올리브영에서 해당 성분 검색 시 인기순 상위 3개 제품입니다.
                                 </p>
                                 <div className="space-y-3">
                                     {ingredient.products.map((product, pIndex) => (
