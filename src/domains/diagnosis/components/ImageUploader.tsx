@@ -5,12 +5,12 @@ import Image from 'next/image';
 
 interface ImageUploaderProps {
     preview: string | null;
-    onFileSelect: (e: ChangeEvent<HTMLInputElement>) => void;
+    onChangeFile: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function ImageUploader({
     preview,
-    onFileSelect,
+    onChangeFile,
 }: ImageUploaderProps) {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -45,7 +45,7 @@ export default function ImageUploader({
             <input
                 type="file"
                 ref={fileInputRef}
-                onChange={onFileSelect}
+                onChange={onChangeFile}
                 accept="image/*"
                 capture="user"
                 className="hidden"

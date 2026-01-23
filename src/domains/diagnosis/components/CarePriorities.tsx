@@ -16,6 +16,7 @@ export default function CarePriorities({ priorities }: CarePrioritiesProps) {
     return (
         <div>
             <h3 className="text-lg font-bold text-gray-900 mb-3 tracking-tight">관리 우선순위</h3>
+
             <div className="flex flex-wrap gap-2.5">
                 {priorities.map((priority, index) => (
                     <span
@@ -27,6 +28,7 @@ export default function CarePriorities({ priorities }: CarePrioritiesProps) {
                             }`}
                     >
                         <span className="mr-1.5 opacity-80">{index + 1}.</span>
+
                         {SKIN_PROBLEMS[priority] || priority}
                     </span>
                 ))}

@@ -1,16 +1,16 @@
 interface DiagnosisButtonProps {
-    onClick: () => void;
+    onClickUpload: () => void;
     disabled: boolean;
     isPending: boolean;
 }
 
-export default function DiagnosisButton({ onClick, disabled, isPending }: DiagnosisButtonProps) {
+export default function DiagnosisButton({ onClickUpload, disabled, isPending }: DiagnosisButtonProps) {
     return (
         <button
-            onClick={onClick}
+            onClick={onClickUpload}
             disabled={disabled}
             className={`w-full py-4 rounded-xl font-bold text-lg transition-all transform duration-200
-      ${disabled
+            ${disabled
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                     : 'bg-blue-500 text-white hover:bg-blue-600 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]'
                 }`}

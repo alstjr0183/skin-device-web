@@ -28,7 +28,7 @@ export default function SkinDiagnosisContainer() {
         },
     });
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
             const selectedFile = e.target.files[0];
             setFile(selectedFile);
@@ -36,7 +36,7 @@ export default function SkinDiagnosisContainer() {
         }
     };
 
-    const handleUpload = () => {
+    const handleClickUpload = () => {
         if (file) {
             mutation.mutate({ file, concern });
         }
@@ -48,7 +48,7 @@ export default function SkinDiagnosisContainer() {
 
             <ImageUploader
                 preview={preview}
-                onFileSelect={handleFileChange}
+                onChangeFile={handleChangeFile}
             />
 
             <ConcernTextarea
@@ -57,10 +57,8 @@ export default function SkinDiagnosisContainer() {
                 disabled={mutation.isPending}
             />
 
-
-
             <DiagnosisButton
-                onClick={handleUpload}
+                onClickUpload={handleClickUpload}
                 disabled={!file || mutation.isPending}
                 isPending={mutation.isPending}
             />
