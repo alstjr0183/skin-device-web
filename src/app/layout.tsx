@@ -12,6 +12,14 @@ const notoSansKr = Noto_Sans_KR({
 export const metadata: Metadata = {
   title: "핏스킨 (FitSkin)",
   description: "나에게 딱 맞는 피부 진단 & 솔루션",
+  openGraph: {
+    title: "핏스킨 (FitSkin) - AI 피부 분석",
+    description: "사진 한 장으로 확인하는 내 피부 상태와 맞춤 솔루션",
+    url: "https://fit-skin.vercel.app",
+    siteName: "FitSkin",
+    locale: "ko_KR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

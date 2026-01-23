@@ -22,7 +22,7 @@ export default function Home() {
                 </span>
                 <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
                     내 피부에 딱 맞는 <br />
-                    <span className="text-blue-600">진단 후 솔루션</span>
+                    <span className="text-blue-600">진단 & 솔루션</span>
                 </h1>
                 <p className="text-lg text-gray-500 mb-10 max-w-xl leading-relaxed">
                     사진 한 장으로 피부 상태를 정밀 분석하고<br /> 당신에게 꼭 필요한 성분과 제품을 추천해드려요.
