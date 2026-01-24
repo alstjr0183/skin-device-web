@@ -15,7 +15,7 @@ interface DiagnosisResultProps {
 
 export default function DiagnosisResult({ result }: DiagnosisResultProps) {
     return (
-        <div className="w-full mt-8 bg-white rounded-3xl shadow-xl p-8 max-w-2xl border border-gray-100 animate-fade-in-up">
+        <div className="w-full mt-8 bg-white rounded-3xl shadow-xl p-6 md:p-8 max-w-2xl border border-gray-100 animate-fade-in-up">
             <DiagnosisHeader />
 
             {!result.is_skin ? (

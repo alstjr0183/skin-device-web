@@ -20,8 +20,8 @@ export default function AnalysisGraph({ graphImage }: AnalysisGraphProps) {
                     />
                 </div>
 
-                {/* 호버 시 나타나는 확대 뷰 (오버레이) */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] h-[180%] flex flex-col items-center justify-center z-50 pointer-events-none opacity-0 invisible scale-95 group-hover:opacity-100 group-hover:visible group-hover:scale-100 transition-all duration-300 ease-out">
+                {/* 호버 시 나타나는 확대 뷰 (오버레이) - 모바일에서는 숨김 처리 */}
+                <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] h-[180%] flex-col items-center justify-center z-50 pointer-events-none opacity-0 invisible scale-95 group-hover:opacity-100 group-hover:visible group-hover:scale-100 transition-all duration-300 ease-out">
                     <div className="relative w-full h-full bg-white rounded-2xl p-2 shadow-2xl border border-gray-100 ring-4 ring-black/5">
                         <Image
                             src={`data:image/png;base64,${graphImage}`}
