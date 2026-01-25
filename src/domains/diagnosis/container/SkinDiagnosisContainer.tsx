@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { postSkinDiagnosis } from '@/domains/diagnosis/api/postSkinDiagnosis';
 import { PostSkinDiagnosisResponse } from '@/domains/diagnosis/api/postSkinDiagnosis';
@@ -16,6 +16,14 @@ export default function SkinDiagnosisContainer() {
     const [file, setFile] = useState<File | null>(null);
     const [concern, setConcern] = useState<string>('');
     const [result, setResult] = useState<PostSkinDiagnosisResponse | null>(null);
+
+    const resultRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (result && resultRef.current) {
+            resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, [result]);
 
     const mutation = useMutation({
         mutationFn: postSkinDiagnosis,
@@ -65,7 +73,11 @@ export default function SkinDiagnosisContainer() {
 
             {mutation.isError && <ErrorMessage />}
 
-            {result && <DiagnosisResult result={result} />}
+            {result && (
+                <div ref={resultRef} className="w-full flex justify-center scroll-mt-4">
+                    <DiagnosisResult result={result} />
+                </div>
+            )}
         </div>
     );
 }
