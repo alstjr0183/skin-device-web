@@ -47,7 +47,6 @@ export default function ImageUploader({
                 ref={fileInputRef}
                 onChange={onChangeFile}
                 accept="image/png, image/jpeg, image/jpg, image/webp"
-                capture="user"
                 className="hidden"
             />
         </div>
